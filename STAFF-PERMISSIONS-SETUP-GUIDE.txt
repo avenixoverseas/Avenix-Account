@@ -1,0 +1,33 @@
+AVENIX OVERSEAS — STAFF PERMISSIONS SETUP
+=========================================
+
+Administrators
+- Any profile with role = ADMIN and active = true can manage users and grant module permissions.
+- There is no hard-coded administrator email. Promote or demote admins from User Management.
+
+FRONTEND
+- Navigation only shows modules the signed-in user has VIEW permission for (admins see all).
+- Direct navigation to an unpermitted module is blocked.
+- Staff without Dashboard VIEW see a welcome screen with masked financial values.
+- User Management and Company Settings are admin-only.
+- Admin can create staff, assign per-module permissions (VIEW / ADD / EDIT / DELETE / VOID / DOWNLOAD / APPROVE), and deactivate accounts.
+
+SUPABASE SQL
+Run the single schema file once:
+
+  supabase/sql/AVENIX_COMPLETE_SCHEMA.sql
+
+This file creates tables, accounting RPCs, permission helpers (is_admin / has_permission),
+and permission-aware Row Level Security on every financial table.
+
+EDGE FUNCTION
+Deploy after frontend:
+
+  supabase functions deploy admin-user-management
+
+Secrets required (server-side only): SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY.
+
+SECURITY
+- Menu hiding alone is not enough. RLS now enforces the same module/action permissions on the database.
+- Never put a service-role key in browser JavaScript.
+- Do not remove your only active administrator.

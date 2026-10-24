@@ -1,0 +1,59 @@
+CURRENT ARCHIVE NOTE — 24 OCT 2026
+====================================
+The canonical SQL file in this archive is:
+  supabase/sql/AVENIX_COMPLETE_SCHEMA.sql
+
+The historical instructions below reference older filenames and are retained
+for change history only. Do NOT follow the old SQL filename or apply an older
+setup script. Back up the database and review DATABASE-MIGRATION-GUIDE.md before
+applying the current schema to any Supabase project.
+
+AVENIX OVERSEAS — RELEASE NOTES (Hardened Accounting Build)
+
+CHANGES IN THIS BUILD
+=====================
+1. GST defaults set to 9% SGST + 9% CGST (standard Indian rate).
+   Rates are configurable in Company Settings (SGST / CGST / IGST).
+2. Account codes are completely removed from all UI screens, ledgers,
+   statements and downloadable reports. Only account names are shown.
+3. HSN/SAC code field added on every invoice line item for GST compliance.
+4. Expense category is now a selectable dropdown (Office, Travel, Marketing,
+   Salaries, Rent, Professional Fees, Bank Charges, Other).
+5. Period lock: set a "Books closed up to" date in Company Settings.
+   No financial transaction on or before that date can be posted or voided.
+6. Credit notes: database function create_credit_note() available for
+   refunds / cancellations that reverse income + tax and reduce AR.
+7. Complete Indian-style Chart of Accounts seeded (Cash, Bank, AR, Output
+   CGST/SGST/IGST, Input GST, Capital, Service Income, expense accounts…).
+8. Opening balances on new cash/bank accounts automatically create a
+   balanced capital journal entry.
+9. Modern, mobile-first UI redesign with improved typography, cards,
+   sidebar, tables and dialogs.
+10. Single complete SQL file: supabase/sql/AVENIX_SETUP_AND_ACCOUNTING.sql
+    Creates all tables, functions, seeds, RLS and indexes.
+
+HOW TO APPLY
+============
+1. Backup your Supabase database.
+2. Open SQL Editor → paste the full contents of
+   supabase/sql/AVENIX_SETUP_AND_ACCOUNTING.sql → Run.
+3. Deploy the updated frontend files (index.html, css/, js/).
+4. Test with a test client, invoice, payment, expense and transfer.
+5. Confirm Trial Balance debits = credits before production use.
+
+IMPORTANT
+=========
+- Confirm GST registration and rates with your Indian tax professional.
+- Historical data is preserved; reconcile old aggregate cash/bank postings
+  against the new per-account ledgers before relying on statutory reports.
+- Set period_lock_date only after you are ready to freeze prior periods.
+
+UI REPAIR UPDATE — 17 OCT 2026
+- Rebuilt the dashboard overview with a welcome note, compact summary cards, responsive spacing, account balances and a six-month posted-income vs posted-expenses bar chart.
+- Client ledger names now prioritize the database's canonical full_name field and fall back through alternate name fields instead of showing a blank/ID.
+- Improved responsive dashboard layout for desktop, tablet and mobile widths.
+- Added explicit A4 print-page sizing to generic printed documents; formal reports remain A4 landscape where their wider ledgers need it, while invoices/receipts use A4 page sizing.
+- Re-ran JavaScript syntax checks and the 13 accounting helper scenario groups successfully.
+
+LIVE ENVIRONMENT NOTE
+The archive can improve the frontend, but live Supabase authentication, database permissions, and real client-name records depend on the connected project schema and data. Verify with an authorised test account before production use. No database migrations were run by this frontend patch.

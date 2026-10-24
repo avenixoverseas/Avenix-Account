@@ -1,0 +1,43 @@
+IMPLEMENTATION STATUS — AVENIX OVERSEAS (COMPLETE vs MASTER PROMPT)
+
+Authoritative SQL (single file only)
+  supabase/sql/Supabase SQL.sql
+
+Owner locked: mohammadaffan@avenixoverseas.com
+
+MASTER PROMPT COVERAGE
+----------------------
+Dashboard + avatar                  DONE
+Clients / Sub-agents                PRESERVED
+Invoice PDF design + colors         DONE
+Receipts (A4 payment receipts)      DONE (printPaymentReceipt)
+Expense vouchers (A4)               DONE (printExpenseVoucher)
+Cash / Bank / Petty Cash separation DONE (helpers + dedicated account)
+Transfers source/destination labels DONE (source_label / destination_label)
+Client / Sub-agent / General ledger PRESERVED
+Financial reports A4                DONE (printReport @page A4)
+Outstanding balances                PRESERVED
+Login History (real auth events)    DONE (sign_in / sign_out inserts + names)
+Downloaded History (user names)     DONE (profile_directory resolve)
+Deleted / Voided records            DONE (voided module + void RPCs)
+Bank reconciliation / Backup        PRESERVED
+User Management
+  - Password show/hide              DONE
+  - Self-service password change    DONE (old + new + confirm + reauth)
+  - Profile photo upload/remove     DONE (avatars storage)
+  - Owner-only ADMIN                DONE
+  - Non-admin cannot manage users   DONE (redirect to MY ACCOUNT)
+Company Settings cards              DONE
+Premium sidebar icons               DONE
+Single SQL file                     DONE
+RLS / is_admin owner lock           DONE
+Unit tests                          PASSING
+
+DEPLOY
+1. Backup DB
+2. Run supabase/sql/Supabase SQL.sql entirely
+3. supabase functions deploy admin-user-management
+4. Confirm Auth email = mohammadaffan@avenixoverseas.com (ADMIN, active)
+5. Deploy static files (keep js/config.js secrets)
+
+Optional: if Storage bucket "avatars" was not auto-created, create it as private in Dashboard.

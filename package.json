@@ -1,0 +1,11 @@
+{
+  "name": "avenix-overseas-accounting-frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:syntax": "node tests/check-syntax.mjs",
+    "test:accounting": "node tests/accounting.test.mjs",
+    "test:permissions": "node tests/permissions-config.test.mjs",
+    "test:navigation": "node tests/navigation-integrity.test.mjs"
+  }
+}

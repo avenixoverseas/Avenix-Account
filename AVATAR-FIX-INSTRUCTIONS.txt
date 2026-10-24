@@ -1,0 +1,18 @@
+AVENIX OVERSEAS — AVATAR FIX
+
+This update addresses two issues found in the supplied source:
+1. Storage INSERT/UPDATE policies allowed users to upload only into their own user-id folder, so the administrator could not upload a photo for another user from User Management.
+2. The dashboard now creates a fresh signed URL from profiles.avatar_path when loading the avatar, rather than depending only on a previously saved URL.
+
+IMPORTANT: The SQL migration must be applied to the existing Supabase project before testing uploads for other users.
+
+Steps:
+1. Back up your project/database as usual.
+2. In Supabase Dashboard -> SQL Editor -> New query, paste and run:
+   supabase/sql/20261024_fix_avatar_storage_admin_upload.sql
+3. Publish the updated frontend files from this ZIP to the same website folder/hosting location you currently use. At minimum, replace js/app.js; keep the relative folder structure.
+4. Hard-refresh the website with Ctrl+F5.
+5. In User Management, edit the target user, select a JPEG/PNG/WebP under 2 MB, click Upload photo, and wait for “Photo saved.”
+6. Sign in as that target user or refresh their dashboard. The photo should appear in the welcome banner.
+
+Do not place service-role keys in frontend files. The migration relies on the existing public.is_admin() function and the existing private Storage bucket named avatars. If that function or bucket is missing, stop and report the exact error rather than disabling security.

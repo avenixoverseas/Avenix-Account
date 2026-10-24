@@ -1,0 +1,36 @@
+AVENIX OVERSEAS — SQL SETUP GUIDE
+=================================
+
+1. Take a full database backup in Supabase (Dashboard → Database → Backups).
+2. Open Supabase Dashboard → SQL Editor → New query.
+3. Open the file:  supabase/sql/Supabase SQL.sql
+4. Copy the ENTIRE file and paste into the SQL Editor.
+5. Click Run. Wait until it completes without errors.
+6. If any error appears, STOP and share the exact error text.
+   Do not delete tables, disable RLS, or run partial fixes.
+
+What the single script does
+---------------------------
+- Creates / updates all application tables (safe, non-destructive)
+- Seeds Chart of Accounts and expense categories
+- Sets GST defaults to 9% + 9%
+- Creates company_settings (period lock + tax rates)
+- Creates credit notes, HSN/SAC on invoice lines
+- Creates balanced posting RPCs (invoice, payment, expense, transfer, credit note, void/reverse)
+- Defines is_admin() and has_permission(module, action)
+- Enables permission-aware RLS on all financial tables
+- Adds login history, deleted-record snapshots, bank reconciliation tables
+- Auto-creates profiles for Auth users; ensures at least one ADMIN exists
+- Does NOT drop Auth users or existing business rows
+
+After the script succeeds
+-------------------------
+1. Sign in as an administrator.
+2. Company Settings → confirm GST rates and set period lock if needed.
+3. User Management → create staff and assign module permissions.
+4. Create a test client → test invoice → small payment → expense → transfer.
+5. Financial Reports → Trial Balance must balance (Debits = Credits).
+6. Only then use for real customer transactions.
+
+Do not run the older FIX_*.sql or ADMIN_STAFF_PERMISSIONS_SETUP.sql files.
+They are superseded by Supabase SQL.sql.

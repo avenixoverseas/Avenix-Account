@@ -1,0 +1,26 @@
+AVENIX OVERSEAS — UI AND AUDIT UPGRADE
+
+Included
+- Golden accent / white sidebar labels, more defined navigation boxes and modern SVG view/edit/delete actions.
+- More polished tables, input fields, detail dialogs, settings forms and responsive stat cards.
+- Petty Cash summary cards use a responsive grid like the dashboard.
+- Invoice print total row no longer overlaps Amount Received / Balance Due; amounts align cleanly.
+- Payment receipt now includes the Avenix logo, current company settings, and a 2-column client detail section including surname, passport, destination, purpose and address when available from the linked client record.
+- Login history now reads from login_history and records successful sign-ins after the audit migration is installed.
+- Download history uses the canonical download_logs table and displays the user name when profile directory access is available.
+- Deleted record snapshots are captured by database triggers for the listed business tables.
+- Bank reconciliation now has a session-creation screen and reconciliation list; the SQL adds statement/reconciliation tables. This first phase does not yet auto-match statement lines or finalize reconciliation, so do not treat it as fully reconciled until those controls are implemented and tested.
+- General ledger includes the requested double-entry accounting rules as an on-screen reminder.
+
+Deployment
+1. Back up the production Supabase database and current static website files.
+2. Apply supabase/sql/AVENIX_UI_AUDIT_RECONCILIATION_UPGRADE.sql in Supabase SQL Editor after confirming the base AVENIX_SETUP_AND_ACCOUNTING.sql schema is installed.
+3. Deploy the updated static files from this project folder, preserving js/config.js values and the assets/avenix-logo.png file.
+4. Sign in as an administrator, verify login history, downloads, deleted-record log, company settings, receipt printing and invoice totals.
+5. Verify RLS and all SQL in a staging project first. Do not expose the service-role key in the browser.
+
+Notes / limits
+- Existing historical sign-ins cannot be reconstructed; history starts when the new logging is installed.
+- Failed sign-in attempts are not recorded by the authenticated RPC because there is no authenticated user identity on a failed sign-in. To capture failed attempts, use a trusted server/Edge Function or auth log pipeline.
+- Deletions made before the trigger installation are not recoverable. The delete trigger preserves snapshots for future hard deletes, but financial records should normally be voided/reversed instead.
+- The UI uses the existing ledger/posting RPCs; this update does not rewrite or replay accounting entries.

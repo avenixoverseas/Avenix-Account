@@ -1,0 +1,16 @@
+AVENIX OVERSEAS — ADMIN ACCESS FIX
+
+Why the previous fix did not work:
+The previous package restricted administrator access to one hardcoded email. The screenshot shows an ADMIN-labelled account, but the dashboard still masks values, consistent with the email/profile check failing. Frontend-only changes are not enough because Supabase RLS and the admin Edge Function also enforced the owner-email restriction.
+
+This package changes the app to treat an authenticated, active profile with role ADMIN as full administrator, and aligns the admin-user-management Edge Function.
+
+DEPLOY STEPS (required):
+1. Back up the Supabase database and confirm the correct project.
+2. In Supabase SQL Editor, review and run supabase/sql/20261024_admin_role_permissions.sql.
+3. Deploy the updated Edge Function: supabase functions deploy admin-user-management
+4. Deploy the updated frontend files from this package to the same hosting location as the current app.
+5. Confirm the affected profile row has role ADMIN, active=true, and id equal to the authenticated user's id. Sign out, sign in again, and hard-refresh.
+6. Test dashboard totals, all menus, and edit actions. Review RLS policies and test in staging before production.
+
+SECURITY: Every active ADMIN profile will now have full access. Only assign ADMIN to trusted administrators. Staff remain permission-scoped. The frontend UI is not a security boundary; RLS/server-side authorization must remain enabled. This package has not been tested against your live Supabase project.

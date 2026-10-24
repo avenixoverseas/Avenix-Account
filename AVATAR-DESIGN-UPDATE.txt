@@ -1,0 +1,15 @@
+AVATAR DESIGN UPDATE
+
+This update enlarges the Dashboard welcome-banner avatar and adds two decorative rings:
+- thick white outer circle
+- gold inner circle between the white border and the photo
+
+Files changed for this design request:
+- css/app.css
+
+Installation:
+1. Back up your current website folder.
+2. Replace the existing css/app.css with the css/app.css in this ZIP, preserving the folder structure.
+3. Hard-refresh the website with Ctrl+F5.
+
+This is a frontend styling change only. It does not modify Supabase tables, Storage policies, authentication, or user records.

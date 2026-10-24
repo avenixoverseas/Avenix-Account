@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#102b55"><title>Avenix Overseas | Accounts</title>
+  <link rel="icon" href="assets/avenix-logo.png"><link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <section id="login-screen" class="login-wrap">
+    <form id="login-form" class="login-card">
+      <img src="assets/avenix-logo.png" alt="Avenix Overseas logo" class="login-logo" onerror="this.hidden=true">
+      <h1>Avenix Overseas</h1><p class="muted">Accounts &amp; billing</p>
+      <label>Email address<input id="login-email" type="email" autocomplete="username" required></label>
+      <label>Password<div class="password-wrap"><input id="login-password" type="password" autocomplete="current-password" required><button id="toggle-password" class="password-toggle" type="button" aria-label="Show password" aria-pressed="false" title="Show password"><img src="assets/icons/eye-closed.svg" width="20" height="20" alt=""></button></div></label>
+      <button class="primary full" type="submit">Sign in</button><p id="login-error" class="error" hidden></p>
+      <p class="small muted">Access is by administrator-created account only.</p>
+      <footer>Developed by Mohammad Affan Siddiqui</footer>
+    </form>
+  </section>
+  <div class="mobile-overlay" id="mobile-overlay" hidden></div>
+  <div id="app" class="app-shell" hidden>
+    <aside class="sidebar"><div class="brand"><img src="assets/avenix-logo.png" alt="Avenix logo" onerror="this.hidden=true"><div><b>AVENIX OVERSEAS</b><small>Accounts office</small></div></div>
+      <nav id="main-nav" aria-label="Main navigation"></nav><div class="sidebar-bottom"><span id="user-badge"></span><button id="logout-btn" class="ghost full" title="Log out" aria-label="Log out"><span class="logout-icon" aria-hidden="true"><img src="assets/icons/logout.svg" width="22" height="22" alt=""></span><span class="logout-label">Log out</span></button></div>
+    </aside>
+    <main class="main"><header class="topbar"><button id="sidebar-toggle" type="button" aria-label="Expand or collapse menu" title="Pin / unpin menu">☰</button><button id="mobile-menu" class="ghost" aria-label="Toggle navigation">☰</button><div><span class="eyebrow">FINANCIAL MANAGEMENT</span><h1 id="page-title">Dashboard</h1></div><div class="topbar-right"><span id="today-label"></span></div></header>
+      <div id="page-content" class="content"><div class="loading">Loading…</div></div>
+      <footer class="app-footer">Avenix Overseas · Delhi, India <span>Developed by Mohammad Affan Siddiqui</span></footer>
+    </main>
+  </div>
+  <dialog id="record-dialog"><form method="dialog" id="record-form"><div class="dialog-head"><h2 id="dialog-title">Record</h2><button class="ghost" type="submit" formnovalidate value="cancel" aria-label="Close form without saving">✕</button></div><div id="dialog-fields" class="form-grid"></div><div class="dialog-actions"><button class="secondary" type="submit" formnovalidate value="cancel">Cancel</button><button id="dialog-save" class="primary" value="default" type="button">Save record</button></div></form></dialog>
+  <dialog id="detail-dialog" class="detail-dialog" aria-labelledby="detail-title">
+    <div class="dialog-head"><h2 id="detail-title">Record details</h2><button id="detail-close" class="ghost" type="button" aria-label="Close details">✕</button></div>
+    <div id="detail-content" class="detail-content"></div>
+    <div class="dialog-actions"><button id="detail-close-bottom" class="secondary" type="button">Close</button></div>
+  </dialog>
+  <script type="module" src="js/app.js"></script>
+</body></html>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="300" viewBox="0 0 1920 300" fill="none" role="img" aria-label="Decorative gold botanical leaves and flowing lines">
+ <defs>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF4C5"/><stop offset=".25" stop-color="#F6D36E"/><stop offset=".58" stop-color="#D9A32D"/><stop offset=".82" stop-color="#A76B12"/><stop offset="1" stop-color="#FFE8A0"/></linearGradient>
+  <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF4C6"/><stop offset=".34" stop-color="#F0C452"/><stop offset=".72" stop-color="#C98D20"/><stop offset="1" stop-color="#8E5A13"/></linearGradient>
+  <linearGradient id="leafDark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#E8BD55"/><stop offset=".45" stop-color="#48688A"/><stop offset="1" stop-color="#0C2B50"/></linearGradient>
+  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2"/></filter>
+  <g id="leafA" stroke="#FFE8A2" stroke-width="1.25" stroke-linejoin="round">
+   <path d="M0 0C-29-8-43-32-34-56-9-48 7-24 0 0Z" fill="url(#leaf)"/>
+   <path d="M0 0C26-14 35-39 22-59-3-44-12-20 0 0Z" fill="url(#leafDark)"/>
+   <path d="M-2-3L-30-47M1-3L21-49" stroke="#FFF8D9" stroke-opacity=".8" fill="none"/>
+  </g>
+  <g id="singleLeaf" stroke="#FFF0B7" stroke-width="1.4" stroke-linejoin="round">
+   <path d="M0 0C-37-10-51-37-39-67-10-56 8-28 0 0Z" fill="url(#leaf)"/>
+   <path d="M-2-4L-35-58" stroke="#FFF9DF" stroke-opacity=".78"/>
+  </g>
+ </defs>
+ <!-- Metallic curves echo the flowing blue-and-gold ribbon in the approved reference. -->
+ <path d="M690 314C890 260 1005 252 1158 208S1465 190 1648 248 1845 270 1940 218" stroke="#070F22" stroke-opacity=".22" stroke-width="15" filter="url(#glow)"/>
+ <path d="M690 314C890 260 1005 252 1158 208S1465 190 1648 248 1845 270 1940 218" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+ <path d="M825 310C1002 260 1089 278 1248 238S1558 219 1718 269 1872 278 1940 251" stroke="#F5C85C" stroke-opacity=".9" stroke-width="2" stroke-linecap="round"/>
+ <path d="M1460 -15C1398 54 1440 99 1490 139S1545 225 1485 309M1698 -15C1768 56 1715 108 1685 145S1655 224 1725 309" stroke="url(#gold)" stroke-width="2.4" stroke-linecap="round"/>
+ <!-- Fine, airy botanical stems around the avatar: no flowers or rosettes. -->
+ <g stroke="url(#gold)" stroke-width="2.2" stroke-linecap="round" fill="none">
+  <path d="M-14 302C52 256 59 211 89 170S142 116 138 70 173 20 199 -9"/>
+  <path d="M22 274C71 249 104 225 119 185S158 139 185 125M66 220C31 199 24 171 36 148M103 177C75 152 79 126 94 109M138 110C166 94 175 70 164 49M166 65C194 54 208 34 200 14"/>
+  <path d="M-5 245C47 227 74 194 79 151M17 194C-4 171 2 149 16 135M74 153C53 128 59 105 77 89" stroke-opacity=".75"/>
+ </g>
+ <g transform="translate(31 238) rotate(-28) scale(.8)"><use href="#leafA"/></g>
+ <g transform="translate(66 203) rotate(32) scale(.78)"><use href="#leafA"/></g>
+ <g transform="translate(91 166) rotate(-31) scale(.68)"><use href="#leafA"/></g>
+ <g transform="translate(124 126) rotate(31) scale(.65)"><use href="#leafA"/></g>
+ <g transform="translate(145 84) rotate(-28) scale(.58)"><use href="#leafA"/></g>
+ <g transform="translate(177 47) rotate(25) scale(.52)"><use href="#leafA"/></g>
+ <g transform="translate(13 281) rotate(14) scale(.62)"><use href="#singleLeaf"/></g>
+ <g transform="translate(108 226) rotate(-16) scale(.55)"><use href="#singleLeaf"/></g>
+ <!-- Elegant, taller leaves on the far right balance the avatar and text. -->
+ <g stroke="url(#gold)" stroke-width="2.1" stroke-linecap="round" fill="none">
+  <path d="M1880 308C1819 256 1814 207 1780 166S1723 109 1738 64 1705 17 1679 -8"/>
+  <path d="M1910 276C1858 253 1831 220 1826 184M1858 226C1894 204 1902 178 1888 154M1800 179C1826 150 1821 126 1804 108M1740 111C1714 93 1705 69 1717 48"/>
+  <path d="M1510 304C1550 257 1570 225 1582 184S1618 117 1654 91M1565 237C1533 222 1517 199 1522 178M1590 177C1617 157 1624 134 1614 115" stroke-opacity=".8"/>
+ </g>
+ <g transform="translate(1851 244) rotate(26) scale(.86)"><use href="#leafA"/></g>
+ <g transform="translate(1823 204) rotate(-32) scale(.78)"><use href="#leafA"/></g>
+ <g transform="translate(1780 165) rotate(27) scale(.72)"><use href="#leafA"/></g>
+ <g transform="translate(1739 123) rotate(-29) scale(.67)"><use href="#leafA"/></g>
+ <g transform="translate(1727 80) rotate(28) scale(.58)"><use href="#leafA"/></g>
+ <g transform="translate(1582 220) rotate(-31) scale(.73)"><use href="#leafA"/></g>
+ <g transform="translate(1610 175) rotate(30) scale(.64)"><use href="#leafA"/></g>
+ <g transform="translate(1645 131) rotate(-28) scale(.6)"><use href="#leafA"/></g>
+ <!-- tiny gold seed pods and highlights, intentionally abstract rather than floral -->
+ <g fill="url(#gold)"><ellipse cx="1900" cy="124" rx="4" ry="8" transform="rotate(28 1900 124)"/><ellipse cx="1550" cy="145" rx="3" ry="6" transform="rotate(-25 1550 145)"/><circle cx="1665" cy="62" r="3.5"/><circle cx="1772" cy="264" r="2.8"/><circle cx="1531" cy="260" r="2.2"/><circle cx="1124" cy="272" r="2"/></g>
+</svg>

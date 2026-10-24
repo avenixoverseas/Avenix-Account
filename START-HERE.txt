@@ -1,0 +1,44 @@
+AVENIX OVERSEAS — START HERE
+
+IMPORTANT
+- This is a static web app connected to your Supabase project.
+- The browser uses only the Supabase publishable/anon key in js/config.js. NEVER put a service-role key in browser files.
+- Back up the Supabase database before running the SQL setup script.
+
+RUN THE WEBSITE ON WINDOWS
+1. Extract the ZIP file to a folder you can find easily, such as Desktop\Avenix-Overseas.
+2. Open the extracted `avenix-account` folder (the folder containing index.html).
+3. Click the File Explorer address bar, type `cmd`, and press Enter.
+4. In the command window, run:
+
+   python -m http.server 8800
+
+5. Keep the command window open.
+6. Open this address in Chrome:
+
+   http://localhost:8800/index.html
+
+7. Sign in using your existing Supabase Auth email and password. Do not create a second user just to test the page.
+
+SUPABASE SQL
+- Open `supabase/sql/Supabase SQL.sql`.
+- First create a database backup in Supabase.
+- Open Supabase Dashboard → SQL Editor → New query.
+- Paste the full SQL file and run it once.
+- If Supabase reports an error, STOP and copy the full error text. Do not delete tables, disable RLS, or run random partial fixes.
+- This script is designed to preserve Auth users and existing business data; it does not drop tables or Auth users. It does update application RLS policies and accounting functions, so test with a designated test invoice/payment before real use.
+
+BILLING RULE
+- Create one original invoice.
+- Every installment creates a separate numbered payment receipt.
+- The receipt shows the original invoice number, all posted installments, total received, and remaining balance.
+- A payment does not create duplicate sales income or a second invoice.
+
+TESTS
+- Accounting helper tests can be run from this folder with: npm run test:accounting
+- Browser tests against live Supabase must still be done in your own project. Never test with a real customer's payment.
+
+FRONTEND REPAIR NOTES (17 OCT 2026)
+The dashboard now includes a welcome panel, compact totals, a six-month posted income/expense chart, and a responsive cash/bank overview. Client ledgers now read `clients.full_name` first, matching the SQL schema, and then use alternate name fields if needed. Printed documents are explicitly sized for A4; wider formal reports use A4 landscape for readability.
+
+After extracting this updated ZIP, run `npm run test:accounting` from the extracted folder to run the included accounting helper tests. Live login and database operations still require checking against your own Supabase project.
