@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" fill="none">
+  <defs>
+    <linearGradient id="goldStroke" x1="20" y1="20" x2="280" y2="280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8E8B8"/>
+      <stop offset="0.35" stop-color="#D4A84A"/>
+      <stop offset="0.7" stop-color="#B8862E"/>
+      <stop offset="1" stop-color="#8B6520"/>
+    </linearGradient>
+    <linearGradient id="goldFill" x1="40" y1="40" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5E0A0"/>
+      <stop offset="0.5" stop-color="#C9A14A"/>
+      <stop offset="1" stop-color="#9A7428"/>
+    </linearGradient>
+    <linearGradient id="leafGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#2A4A32"/>
+      <stop offset="0.5" stop-color="#1E3A28"/>
+      <stop offset="1" stop-color="#142820"/>
+    </linearGradient>
+    <linearGradient id="petalDark" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#1F3D2A"/>
+      <stop offset="0.6" stop-color="#163022"/>
+      <stop offset="1" stop-color="#0E2018"/>
+    </linearGradient>
+    <radialGradient id="centerGold" cx="50%" cy="50%" r="50%">
+      <stop stop-color="#F5E4A8"/>
+      <stop offset="0.6" stop-color="#D4A84A"/>
+      <stop offset="1" stop-color="#A87B28"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Elegant gold vines and swirls matching Image 1 -->
+  <g stroke="url(#goldStroke)" stroke-width="2.4" stroke-linecap="round" fill="none" opacity="0.95">
+    <path d="M12 18 C 45 28, 68 55, 82 95 C 96 138, 125 175, 185 220 C 210 240, 255 265, 305 295"/>
+    <path d="M18 42 C 55 48, 85 75, 98 115 C 112 155, 145 190, 210 235"/>
+    <path d="M38 14 C 48 55, 72 90, 105 118 C 140 148, 185 175, 250 210"/>
+    <path d="M55 95 C 78 88, 95 105, 108 128"/>
+    <path d="M95 55 C 88 78, 105 95, 128 108"/>
+    <path d="M130 155 C 155 148, 175 168, 188 195"/>
+    <path d="M155 130 C 148 155, 168 175, 195 188"/>
+    <path d="M70 70 C 85 55, 105 58, 115 75 C 122 88, 115 105, 98 110 C 82 114, 68 100, 70 85"/>
+    <path d="M160 100 C 175 85, 195 88, 205 105 C 212 118, 205 135, 188 140 C 172 144, 158 130, 160 115"/>
+    <path d="M100 160 C 115 145, 135 148, 145 165 C 152 178, 145 195, 128 200 C 112 204, 98 190, 100 175"/>
+  </g>
+
+  <!-- Small gold leaves along vines -->
+  <g fill="url(#goldFill)" stroke="url(#goldStroke)" stroke-width="1.2">
+    <path d="M48 58 C 38 48, 28 55, 38 68 C 42 74, 52 72, 55 65 C 57 58, 52 55, 48 58Z"/>
+    <path d="M78 48 C 68 38, 58 45, 68 58 C 72 64, 82 62, 85 55 C 87 48, 82 45, 78 48Z"/>
+    <path d="M118 88 C 108 78, 98 85, 108 98 C 112 104, 122 102, 125 95 C 127 88, 122 85, 118 88Z"/>
+    <path d="M88 118 C 78 108, 68 115, 78 128 C 82 134, 92 132, 95 125 C 97 118, 92 115, 88 118Z"/>
+    <path d="M168 148 C 158 138, 148 145, 158 158 C 162 164, 172 162, 175 155 C 177 148, 172 145, 168 148Z"/>
+    <path d="M148 168 C 138 158, 128 165, 138 178 C 142 184, 152 182, 155 175 C 157 168, 152 165, 148 168Z"/>
+  </g>
+
+  <!-- Main dark green flower -->
+  <g transform="translate(55,175)">
+    <g fill="url(#petalDark)" stroke="url(#goldStroke)" stroke-width="1.8">
+      <path d="M0 -28 C 12 -32, 22 -18, 18 -4 C 14 8, 2 14, -6 8 C -12 2, -10 -18, 0 -28Z"/>
+      <path d="M0 -28 C -12 -32, -22 -18, -18 -4 C -14 8, -2 14, 6 8 C 12 2, 10 -18, 0 -28Z" transform="rotate(72)"/>
+      <path d="M0 -28 C 12 -32, 22 -18, 18 -4 C 14 8, 2 14, -6 8 C -12 2, -10 -18, 0 -28Z" transform="rotate(144)"/>
+      <path d="M0 -28 C -12 -32, -22 -18, -18 -4 C -14 8, -2 14, 6 8 C 12 2, 10 -18, 0 -28Z" transform="rotate(216)"/>
+      <path d="M0 -28 C 12 -32, 22 -18, 18 -4 C 14 8, 2 14, -6 8 C -12 2, -10 -18, 0 -28Z" transform="rotate(288)"/>
+    </g>
+    <circle r="7" fill="url(#centerGold)" stroke="#8B6520" stroke-width="1.2"/>
+    <circle r="2.5" fill="#F8E8B8"/>
+  </g>
+
+  <!-- Second dark green flower -->
+  <g transform="translate(195,95)">
+    <g fill="url(#petalDark)" stroke="url(#goldStroke)" stroke-width="1.6">
+      <path d="M0 -24 C 10 -28, 19 -15, 15 -3 C 12 7, 2 12, -5 7 C -10 2, -8 -15, 0 -24Z"/>
+      <path d="M0 -24 C -10 -28, -19 -15, -15 -3 C -12 7, -2 12, 5 7 C 10 2, 8 -15, 0 -24Z" transform="rotate(72)"/>
+      <path d="M0 -24 C 10 -28, 19 -15, 15 -3 C 12 7, 2 12, -5 7 C -10 2, -8 -15, 0 -24Z" transform="rotate(144)"/>
+      <path d="M0 -24 C -10 -28, -19 -15, -15 -3 C -12 7, -2 12, 5 7 C 10 2, 8 -15, 0 -24Z" transform="rotate(216)"/>
+      <path d="M0 -24 C 10 -28, 19 -15, 15 -3 C 12 7, 2 12, -5 7 C -10 2, -8 -15, 0 -24Z" transform="rotate(288)"/>
+    </g>
+    <circle r="6" fill="url(#centerGold)" stroke="#8B6520" stroke-width="1.1"/>
+    <circle r="2.2" fill="#F8E8B8"/>
+  </g>
+
+  <!-- Small accent flower -->
+  <g transform="translate(145,55) scale(0.55)">
+    <g fill="url(#petalDark)" stroke="url(#goldStroke)" stroke-width="2">
+      <path d="M0 -22 C 9 -25, 17 -14, 14 -3 C 11 6, 2 11, -4 6 C -9 2, -7 -14, 0 -22Z"/>
+      <path d="M0 -22 C -9 -25, -17 -14, -14 -3 C -11 6, -2 11, 4 6 C 9 2, 7 -14, 0 -22Z" transform="rotate(72)"/>
+      <path d="M0 -22 C 9 -25, 17 -14, 14 -3 C 11 6, 2 11, -4 6 C -9 2, -7 -14, 0 -22Z" transform="rotate(144)"/>
+      <path d="M0 -22 C -9 -25, -17 -14, -14 -3 C -11 6, -2 11, 4 6 C 9 2, 7 -14, 0 -22Z" transform="rotate(216)"/>
+      <path d="M0 -22 C 9 -25, 17 -14, 14 -3 C 11 6, 2 11, -4 6 C -9 2, -7 -14, 0 -22Z" transform="rotate(288)"/>
+    </g>
+    <circle r="5.5" fill="url(#centerGold)" stroke="#8B6520" stroke-width="1.5"/>
+  </g>
+
+  <!-- Dark green leaves -->
+  <g fill="url(#leafGreen)" stroke="url(#goldStroke)" stroke-width="1.3" opacity="0.92">
+    <path d="M42 125 C 28 110, 18 120, 32 138 C 38 148, 52 142, 55 130 C 57 120, 48 115, 42 125Z"/>
+    <path d="M125 42 C 110 28, 120 18, 138 32 C 148 38, 142 52, 130 55 C 120 57, 115 48, 125 42Z"/>
+    <path d="M210 155 C 195 140, 185 150, 200 168 C 206 178, 220 172, 223 160 C 225 150, 216 145, 210 155Z"/>
+    <path d="M155 210 C 140 195, 150 185, 168 200 C 178 206, 172 220, 160 223 C 150 225, 145 216, 155 210Z"/>
+    <path d="M95 195 C 82 182, 75 192, 88 208 C 94 216, 106 210, 108 198 C 110 188, 102 185, 95 195Z"/>
+    <path d="M195 95 C 182 82, 192 75, 208 88 C 216 94, 210 106, 198 108 C 188 110, 185 102, 195 95Z"/>
+  </g>
+
+  <!-- Tiny gold dots -->
+  <g fill="#D4A84A" opacity="0.85">
+    <circle cx="35" cy="95" r="2.5"/>
+    <circle cx="95" cy="35" r="2.5"/>
+    <circle cx="175" cy="75" r="2"/>
+    <circle cx="75" cy="175" r="2"/>
+    <circle cx="230" cy="145" r="2.2"/>
+    <circle cx="145" cy="230" r="2.2"/>
+  </g>
+</svg>

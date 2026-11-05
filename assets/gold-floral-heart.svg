@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <defs>
+    <linearGradient id="heartGold" x1="50" y1="50" x2="550" y2="550" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8E8B8"/>
+      <stop offset="0.25" stop-color="#E8C878"/>
+      <stop offset="0.5" stop-color="#D4A84A"/>
+      <stop offset="0.75" stop-color="#B8862E"/>
+      <stop offset="1" stop-color="#8B6520"/>
+    </linearGradient>
+    <linearGradient id="heartGoldSoft" x1="100" y1="100" x2="500" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5E0A0" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#D4A84A" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#A87B28" stop-opacity="0.8"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="45%" r="40%">
+      <stop stop-color="#FFF8E0" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#D4A84A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Soft background glow -->
+  <ellipse cx="300" cy="280" rx="220" ry="200" fill="url(#centerGlow)"/>
+
+  <!-- Outer rope / braided heart border matching Image 2 -->
+  <g stroke="url(#heartGold)" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.95">
+    <!-- Main heart outline with rope texture suggestion -->
+    <path d="M300 520
+      C 180 420, 80 320, 80 220
+      C 80 140, 140 90, 200 90
+      C 240 90, 275 115, 300 150
+      C 325 115, 360 90, 400 90
+      C 460 90, 520 140, 520 220
+      C 520 320, 420 420, 300 520Z"/>
+  </g>
+
+  <!-- Double inner border for depth -->
+  <g stroke="url(#heartGold)" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.75">
+    <path d="M300 490
+      C 195 400, 115 310, 115 225
+      C 115 160, 160 120, 210 120
+      C 245 120, 275 140, 300 170
+      C 325 140, 355 120, 390 120
+      C 440 120, 485 160, 485 225
+      C 485 310, 405 400, 300 490Z"/>
+  </g>
+
+  <!-- Intricate internal paisley and floral scrolls (left half) -->
+  <g stroke="url(#heartGold)" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.88">
+    <!-- Left upper swirl -->
+    <path d="M180 180 C 160 160, 150 140, 165 125 C 180 110, 205 120, 210 145 C 215 165, 200 180, 180 180"/>
+    <path d="M200 200 C 175 190, 160 210, 170 230 C 180 250, 205 245, 215 225 C 222 210, 215 195, 200 200"/>
+    <!-- Left lower -->
+    <path d="M160 280 C 140 260, 135 235, 155 220 C 175 205, 200 220, 200 250 C 200 270, 180 285, 160 280"/>
+    <path d="M190 320 C 165 310, 155 335, 170 355 C 185 375, 215 365, 220 340 C 224 320, 210 310, 190 320"/>
+    <!-- Center vertical flourishes -->
+    <path d="M300 160 C 285 180, 290 210, 300 230 C 310 210, 315 180, 300 160"/>
+    <path d="M300 250 C 280 270, 285 300, 300 320 C 315 300, 320 270, 300 250"/>
+    <path d="M300 340 C 285 360, 290 390, 300 410 C 310 390, 315 360, 300 340"/>
+  </g>
+
+  <!-- Right half mirrored scrolls -->
+  <g stroke="url(#heartGold)" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.88">
+    <path d="M420 180 C 440 160, 450 140, 435 125 C 420 110, 395 120, 390 145 C 385 165, 400 180, 420 180"/>
+    <path d="M400 200 C 425 190, 440 210, 430 230 C 420 250, 395 245, 385 225 C 378 210, 385 195, 400 200"/>
+    <path d="M440 280 C 460 260, 465 235, 445 220 C 425 205, 400 220, 400 250 C 400 270, 420 285, 440 280"/>
+    <path d="M410 320 C 435 310, 445 335, 430 355 C 415 375, 385 365, 380 340 C 376 320, 390 310, 410 320"/>
+  </g>
+
+  <!-- Decorative lotus / flower motifs at top and bottom of heart -->
+  <g fill="url(#heartGoldSoft)" stroke="url(#heartGold)" stroke-width="1.8" opacity="0.9">
+    <!-- Top lotus -->
+    <path d="M300 95 C 290 85, 280 90, 285 105 C 288 112, 295 115, 300 110 C 305 115, 312 112, 315 105 C 320 90, 310 85, 300 95Z"/>
+    <path d="M300 95 C 285 100, 275 115, 290 125 C 295 128, 300 125, 300 120 C 300 125, 305 128, 310 125 C 325 115, 315 100, 300 95Z"/>
+    <!-- Bottom accent -->
+    <path d="M300 470 C 290 460, 280 465, 285 480 C 288 487, 295 490, 300 485 C 305 490, 312 487, 315 480 C 320 465, 310 460, 300 470Z"/>
+  </g>
+
+  <!-- Small leaf clusters inside -->
+  <g fill="url(#heartGold)" opacity="0.7">
+    <path d="M240 220 C 230 210, 225 220, 235 230 C 240 235, 250 230, 248 220 C 246 212, 240 215, 240 220Z"/>
+    <path d="M360 220 C 370 210, 375 220, 365 230 C 360 235, 350 230, 352 220 C 354 212, 360 215, 360 220Z"/>
+    <path d="M250 350 C 240 340, 235 350, 245 360 C 250 365, 260 360, 258 350 C 256 342, 250 345, 250 350Z"/>
+    <path d="M350 350 C 360 340, 365 350, 355 360 C 350 365, 340 360, 342 350 C 344 342, 350 345, 350 350Z"/>
+  </g>
+
+  <!-- Tiny seed dots for texture -->
+  <g fill="#D4A84A" opacity="0.6">
+    <circle cx="220" cy="250" r="2.5"/>
+    <circle cx="380" cy="250" r="2.5"/>
+    <circle cx="260" cy="300" r="2"/>
+    <circle cx="340" cy="300" r="2"/>
+    <circle cx="280" cy="380" r="2.2"/>
+    <circle cx="320" cy="380" r="2.2"/>
+    <circle cx="300" cy="200" r="2"/>
+  </g>
+
+  <!-- Subtle outer glow path -->
+  <path d="M300 535 C 170 430, 65 320, 65 215 C 65 125, 135 70, 205 70 C 250 70, 285 100, 300 140 C 315 100, 350 70, 395 70 C 465 70, 535 125, 535 215 C 535 320, 430 430, 300 535Z"
+        stroke="url(#heartGold)" stroke-width="1.5" fill="none" opacity="0.25"/>
+</svg>

@@ -1,0 +1,28 @@
+AVENIX OVERSEAS — SOURCE ARCHIVE STATUS
+
+Canonical files
+---------------
+Frontend entry: index.html
+Main application: js/app.js
+Public Supabase configuration: js/config.js
+Canonical database schema and RLS: supabase/sql/Supabase SQL.sql
+Additive avatar Storage policy repair: supabase/sql/20261024_fix_avatar_storage_admin_upload.sql
+Administrator user-management function: supabase/functions/admin-user-management/index.ts
+
+Designated administrator
+------------------------
+mohammadaffan@avenixoverseas.com
+
+Source-level status
+-------------------
+- The frontend and Edge Function contain the designated administrator check.
+- The canonical SQL defines public.is_admin() and permission-aware policies.
+- The avatar repair migration permits administrator-managed avatar uploads.
+- The project retains its existing accounting modules and visual stylesheets.
+- JavaScript syntax checks pass with `npm run check:syntax`.
+
+Deployment status and limitations
+---------------------------------
+This archive does not establish whether the live Supabase database has the canonical schema, RLS policies, Storage bucket, or avatar policies installed. It also does not prove that every staff permission has been configured correctly. Verify the live project using DATABASE-PERMISSIONS-REPAIR.md and test with separate administrator and staff accounts.
+
+Do not blindly rerun the full schema against production. Back up the database and compare the live schema first. Deploy the Edge Function with its service-role key stored only as a server-side secret.

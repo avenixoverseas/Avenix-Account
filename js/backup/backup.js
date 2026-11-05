@@ -1,0 +1,5 @@
+import {requireClient} from '../services/supabase.js';
+const TABLES=['clients','sub_agents','cash_accounts','bank_accounts','invoices','invoice_items','payments','expenses','journal_entries','journal_lines','transfers','audit_logs'];
+export async function createJsonBackup(){const db=requireClient(),payload={format:'avenix-backup',schemaVersion:1,createdAt:new Date().toISOString(),tables:{}};for(const table of TABLES){const {data,error}=await db.from(table).select('*').limit(10000);if(error)throw new Error(`Backup could not read ${table}. ${error.message}`);payload.tables[table]=data||[];}const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`avenix-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(a.href);}
+/* This browser export is a convenience snapshot, not a transactionally consistent disaster-recovery backup.
+   Use provider-managed encrypted backups/PITR as documented in BACKUP-RESTORE.md. */

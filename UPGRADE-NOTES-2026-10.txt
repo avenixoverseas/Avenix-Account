@@ -1,0 +1,24 @@
+AVENIX OVERSEAS — UI AND AUDIT UPGRADE NOTES
+
+The current source of truth is the application code in this archive and the canonical SQL file:
+  supabase/sql/Supabase SQL.sql
+
+The following additional migration is retained for avatar Storage policy repair:
+  supabase/sql/20261024_fix_avatar_storage_admin_upload.sql
+
+Do not apply historical SQL filenames referenced by older release notes; those files are not part of this archive.
+
+Included application areas
+- Dashboard, responsive cards, navigation and botanical visual styling.
+- Client and sub-agent records, invoices, receipts, expenses and ledgers.
+- Login and download history, deleted/voided records, backup and reconciliation screens.
+- User management, role permissions, administrator checks and profile image support.
+
+Deployment guidance
+1. Back up production database and static website files.
+2. Review the canonical schema against the live database before applying SQL.
+3. Deploy the static files while preserving the Supabase public configuration.
+4. Deploy the admin-user-management Edge Function with server-side secrets configured.
+5. Test with the administrator and a separate staff account with limited VIEW grants.
+
+The frontend source does not prove that production RLS or Storage policies are current. Validate those policies in Supabase and test with real authorized accounts before relying on the deployment.

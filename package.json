@@ -1,0 +1,8 @@
+{
+  "name": "avenix-overseas-accounting-frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:syntax": "node --check js/app.js && node --check js/config.js && node --check js/services/supabase.js && node --check js/modules/utils.js && node --check js/modules/forms.js && node --check js/modules/accounting.js && node --check js/modules/reports.js && node --check js/backup/backup.js"
+  }
+}
