@@ -1,0 +1,205 @@
+/* Avenix signature finish: four botanical corners matching Image 1,
+   central golden floral heart matching Image 2, and polished surfaces.
+   Decorative only; application behavior and financial workflows remain untouched. */
+:root{
+  --avenix-forest:#1a3324;
+  --avenix-leaf:#2a4a32;
+  --avenix-gold:#c6a15d;
+  --avenix-champagne:#f3e6c7;
+  --avenix-paper:#fffdf8;
+  --avenix-ivory:#f8f5ef;
+}
+
+/* Fixed four-corner frame — all pages & menus */
+.floral-frame{
+  position:fixed;
+  inset:0;
+  z-index:40;
+  pointer-events:none;
+  overflow:hidden;
+}
+.floral-corner{
+  position:absolute;
+  width:clamp(110px,13vw,190px);
+  height:clamp(110px,13vw,190px);
+  background:url('../assets/floral-corner.svg') left top / contain no-repeat;
+  opacity:0.88;
+  filter:drop-shadow(0 2px 4px rgba(40,30,15,.10));
+}
+.floral-corner.top-left{top:4px;left:4px}
+.floral-corner.top-right{top:4px;right:4px;transform:scaleX(-1)}
+.floral-corner.bottom-left{bottom:4px;left:4px;transform:scaleY(-1)}
+.floral-corner.bottom-right{bottom:4px;right:4px;transform:scale(-1)}
+
+/* Fine inner keyline for intentional framing */
+body:after{
+  content:"";
+  position:fixed;
+  inset:10px;
+  z-index:39;
+  pointer-events:none;
+  border:1px solid rgba(190,155,87,.22);
+  border-radius:18px;
+}
+
+/* Central golden floral heart — subtle watermark behind content on every page */
+.content::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  top:50%;
+  left:50%;
+  width:min(520px,72vw);
+  height:min(520px,72vw);
+  transform:translate(-50%,-48%);
+  background:url('../assets/gold-floral-heart.svg') center / contain no-repeat;
+  opacity:0.07;
+}
+
+/* Stronger heart presence on login */
+.login-wrap{
+  background:
+    radial-gradient(ellipse at 12% 12%,rgba(204,177,119,.18),transparent 36%),
+    radial-gradient(ellipse at 88% 88%,rgba(45,90,55,.10),transparent 40%),
+    #f8f5ef !important;
+  position:relative;
+}
+.login-wrap::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  top:50%;
+  left:50%;
+  width:min(480px,90vw);
+  height:min(480px,90vw);
+  transform:translate(-50%,-52%);
+  background:url('../assets/gold-floral-heart.svg') center / contain no-repeat;
+  opacity:0.11;
+}
+
+/* Refined login card */
+.login-card{
+  position:relative;
+  z-index:1;
+  overflow:hidden;
+  border:1px solid #d9c394 !important;
+  border-radius:26px !important;
+  background:linear-gradient(145deg,#fffefa 0%,#fbf7ed 100%) !important;
+  box-shadow:
+    0 20px 52px rgba(39,61,42,.14),
+    inset 0 1px 0 #fff !important;
+}
+.login-card:before,
+.login-card:after{
+  content:"✧  ♡  ✧";
+  position:absolute;
+  color:#bd9957;
+  letter-spacing:.45em;
+  font-family:Georgia,serif;
+  font-size:14px;
+  opacity:.55;
+  pointer-events:none;
+}
+.login-card:before{top:14px;right:20px}
+.login-card:after{bottom:13px;left:20px}
+.login-card h1{
+  font-family:Georgia,"Times New Roman",serif !important;
+  color:var(--avenix-forest) !important;
+  letter-spacing:.02em;
+}
+.login-card .login-logo{
+  filter:drop-shadow(0 4px 8px rgba(120,91,40,.18));
+}
+
+/* Sidebar & topbar luxury polish */
+.sidebar{
+  background:linear-gradient(180deg,#fffdf9 0%,#f5efe4 100%) !important;
+  border-right:1px solid #dfc99d !important;
+}
+.sidebar .brand b{
+  font-family:Georgia,serif !important;
+  color:#1a3324 !important;
+}
+.topbar{
+  background:linear-gradient(90deg,#fffdf9,#f9f3e8) !important;
+  border-bottom:1px solid #e8dcc4 !important;
+}
+.topbar .eyebrow{
+  color:#a88b45 !important;
+  letter-spacing:.14em;
+  font-size:.68rem;
+}
+.topbar h1{
+  font-family:Georgia,"Times New Roman",serif !important;
+  color:#1a3324 !important;
+}
+
+/* Consistent panel & card treatment across all menus */
+.panel,
+.stat-card,
+.login-card{
+  border-radius:18px !important;
+}
+.panel-head h2,
+.stat-card strong{
+  font-family:Georgia,"Times New Roman",serif !important;
+}
+
+/* Subtle gold accent line on first panel of every page */
+#page-content > .panel:first-child{
+  position:relative;
+}
+#page-content > .panel:first-child::after{
+  content:"";
+  position:absolute;
+  right:12px;
+  top:10px;
+  width:100px;
+  height:70px;
+  background:url('../assets/gold-botanical-ribbon.svg') right top / auto 100% no-repeat;
+  opacity:.11;
+  pointer-events:none;
+}
+
+/* Navigation active state with botanical green + gold underline */
+#main-nav a.active,
+#main-nav button.active{
+  background:linear-gradient(90deg,rgba(38,61,50,.08),rgba(198,161,93,.12)) !important;
+  color:#1a3324 !important;
+  border-left:3px solid #c6a15d !important;
+}
+
+/* Footer refinement */
+.app-footer{
+  border-top:1px solid #e8dcc4 !important;
+  color:#8a806e !important;
+  font-size:.75rem;
+}
+
+/* Mobile adjustments — keep corners visible but smaller */
+@media (max-width:720px){
+  .floral-corner{
+    width:clamp(72px,18vw,110px);
+    height:clamp(72px,18vw,110px);
+    opacity:0.72;
+  }
+  .content::before{
+    width:min(340px,85vw);
+    height:min(340px,85vw);
+    opacity:0.055;
+  }
+  body:after{
+    inset:6px;
+    border-radius:12px;
+  }
+}
+
+/* Ensure decorative layers never block interaction */
+.floral-frame,
+.content::before,
+.login-wrap::before,
+#page-content > .panel:first-child::after{
+  pointer-events:none !important;
+}

@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+const sql = await readFile(new URL('../supabase/sql/schema.sql', import.meta.url), 'utf8');
+assert.match(sql, /create or replace function public\.post_journal/i);
+assert.match(sql, /Journal is not balanced/i);
+assert.match(sql, /create table if not exists public\.invoices/i);
+assert.match(sql, /create table if not exists public\.payments/i);
+assert.match(sql, /create table if not exists public\.journal_lines/i);
+assert.match(sql, /assert_period_open/i);
+assert.match(sql, /create or replace function public\.get_trial_balance/i);
+console.log('Accounting schema invariants OK.');
+
+const payroll = sql.toLowerCase();
+assert.match(payroll, /add column if not exists is_statutory boolean/);
+assert.match(payroll, /set is_statutory = false where is_statutory is null/);
+assert.match(payroll, /create or replace function public\.process_payroll_payment/);
+assert.match(payroll, /uq_journal_payroll_source/);
+assert.match(payroll, /global_activity_number_seq/);
+assert.match(payroll, /create trigger trg_global_activity/);
+console.log('Payroll posting and global activity invariants OK.');

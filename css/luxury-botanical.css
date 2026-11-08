@@ -1,0 +1,317 @@
+/* Avenix Accounting — Ivory / Champagne / Botanical redesign layer
+   Presentation only: no application logic, Supabase calls, schema, or calculations changed. */
+:root{
+  --navy:#263d32;--navy-soft:#344b3d;--blue:#344b3d;--blue-hover:#263d32;--blue-light:#edf1e9;
+  --green:#477a5b;--green-bg:#edf4ed;--red:#b65c54;--red-bg:#fbefed;--amber:#b88a3b;--amber-bg:#faf3e5;
+  --slate:#777168;--slate-light:#a39b8d;--border:#e9e1d3;--border-soft:#f1ece3;
+  --bg:#f8f5ef;--surface:#fffdf9;--text:#302e29;--text-muted:#777168;
+  --radius:16px;--radius-sm:10px;--shadow:0 4px 16px rgba(74,58,31,.07);--shadow-lg:0 10px 28px rgba(74,58,31,.12);
+  --sidebar-w:266px;--sidebar-collapsed-w:266px;--topbar-h:76px;
+}
+html{font-family:Inter,"Segoe UI",Arial,sans-serif}
+body{background:#f8f5ef;color:#302e29;font-family:Inter,"Segoe UI",Arial,sans-serif}
+button,.btn,input,select,textarea{font-family:inherit}
+/* Persistent warm botanical canvas */
+#app{background:#f8f5ef}
+.main{background:#f8f5ef}
+.content{max-width:1600px;padding:26px 28px 34px;position:relative;isolation:isolate}
+.content:before{/* overridden by floral-finish.css for central heart */}
+/* Sidebar: reference-inspired ivory navigation with forest-green active state */
+.sidebar{background:linear-gradient(180deg,#fffdf9 0%,#f6f0e5 100%)!important;color:#344b3d!important;border-right:1px solid #dfc99d!important;box-shadow:5px 0 22px rgba(91,70,35,.055);width:266px!important;overflow-x:hidden}
+.sidebar:after{content:"";position:absolute;pointer-events:none;z-index:0;left:-35px;bottom:24px;width:300px;height:180px;background:url('../assets/gold-botanical-ribbon.svg') left bottom/auto 100% no-repeat;opacity:.19;transform:rotate(180deg)}
+.sidebar .brand{position:relative;z-index:1;min-height:100px;justify-content:flex-start!important;gap:12px!important;padding:17px 15px!important;background:rgba(255,253,249,.86);border-bottom:1px solid #e9dfcd!important}
+.sidebar .brand img{width:54px!important;height:54px!important;flex:0 0 54px!important;border-radius:50%;background:#fff;border:1px solid #d7b86e;box-shadow:0 2px 8px rgba(116,88,35,.1)}
+.sidebar .brand b{color:#263d32!important;font-family:Georgia,serif;font-size:.91rem!important;letter-spacing:.035em}
+.sidebar .brand small{color:#8a806e!important;font-size:.66rem!important;letter-spacing:.12em}
+#main-nav{position:relative;z-index:1;padding:15px 11px 18px!important;gap:5px!important}
+#main-nav .nav-item{display:flex!important;justify-content:flex-start!important;align-items:center!important;gap:12px!important;padding:10px 12px!important;min-height:45px;border:1px solid transparent!important;border-radius:12px!important;color:#4d554a!important;font-size:.79rem!important;font-weight:650!important;letter-spacing:0!important;background:transparent!important;box-shadow:none!important}
+#main-nav .nav-item>span:nth-child(2){opacity:1!important;width:auto!important;max-width:none!important;display:inline!important;overflow:visible!important;color:inherit!important}
+#main-nav .nav-item .nav-icon{display:grid;place-items:center;width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:#f8f1e4;border:1px solid #eddfc2;box-shadow:0 2px 6px rgba(117,89,43,.07)}
+#main-nav .nav-icon-img{width:21px;height:21px;filter:sepia(.22) saturate(.75)}
+#main-nav .nav-chevron{display:block!important;margin-left:auto;color:#a88748!important;opacity:1!important}
+#main-nav .nav-item:hover{background:#f5efe3!important;border-color:#ead8b2!important;color:#263d32!important;transform:translateX(2px)}
+#main-nav .nav-item.active{background:linear-gradient(100deg,#344b3d,#263d32)!important;border:1px solid #c7a45f!important;color:#fff!important;box-shadow:0 4px 12px rgba(38,61,50,.18)!important}
+#main-nav .nav-item.active .nav-icon{background:#f5e6c4;border-color:#d6b76f}
+#main-nav .nav-item.active .nav-chevron{color:#f0d28f!important}
+.sidebar-bottom{position:relative;z-index:1;align-items:stretch!important;padding:14px 15px!important;border-top:1px solid #e9dfcd!important;background:rgba(255,253,249,.8)}
+#user-badge{color:#716b60!important;font-size:.72rem!important}
+#logout-btn{background:#f8f1e8!important;border:1px solid #e6d5b4!important;color:#344b3d!important}
+/* Sidebar is full width by default; collapse remains available through the existing toggle. */
+@media(min-width:721px){
+ .sidebar:not(.pinned){width:266px!important}.main{margin-left:266px!important}
+ .sidebar:not(.expanded):not(.pinned):not(:hover) .nav-item>span:nth-child(2),.sidebar:not(.expanded):not(.pinned):not(:hover) .nav-chevron,.sidebar:not(.expanded):not(.pinned):not(:hover) .brand small,.sidebar:not(.expanded):not(.pinned):not(:hover) .brand b,.sidebar:not(.expanded):not(.pinned):not(:hover) #user-badge,.sidebar:not(.expanded):not(.pinned):not(:hover) #logout-btn .logout-label{opacity:1!important;width:auto!important;max-width:none!important;display:initial!important;pointer-events:auto!important}
+ .sidebar:not(.expanded):not(.pinned):not(:hover) #main-nav .nav-item{justify-content:flex-start!important;gap:12px!important;padding:10px 12px!important;margin:0!important}
+ .sidebar:not(.expanded):not(.pinned):not(:hover) #main-nav .nav-chevron{display:block!important}
+ .sidebar:not(.expanded):not(.pinned):not(:hover) .brand{justify-content:flex-start!important;gap:12px!important;padding:17px 15px!important}
+ .sidebar:not(.expanded):not(.pinned):not(:hover) .sidebar-bottom{align-items:stretch!important}
+ .sidebar:not(.expanded):not(.pinned):not(:hover) #logout-btn{width:100%!important;height:auto!important;justify-content:flex-start!important;padding:9px 16px!important}
+}
+/* Top navigation */
+.topbar{height:76px!important;background:rgba(255,253,249,.96)!important;border-bottom:1px solid #e9e1d3!important;box-shadow:0 2px 12px rgba(74,58,31,.035)!important;padding:0 26px!important}
+.topbar .eyebrow{color:#b58b42!important;font-size:.66rem!important;letter-spacing:.16em!important;font-weight:750!important}
+.topbar h1{font-family:Georgia,"Times New Roman",serif!important;color:#263d32!important;font-size:1.42rem!important;font-weight:700!important;letter-spacing:-.02em}
+.topbar-right{color:#857d70!important}
+#sidebar-toggle,#mobile-menu{background:#f7f2e9!important;border:1px solid #e7dcc8!important;color:#344b3d!important;border-radius:11px!important}
+.app-footer{background:#fffdf9!important;border-top:1px solid #e9e1d3!important;color:#8a806e!important;padding:15px 26px!important}
+/* Dashboard welcome panel: warm paper surface, fine gold botanical frame */
+.welcome-banner{position:relative!important;isolation:isolate;display:flex!important;align-items:center!important;justify-content:space-between!important;min-height:184px!important;padding:24px 26px!important;margin:0 0 20px!important;overflow:hidden!important;border:1px solid #e4d0a6!important;border-radius:20px!important;background:linear-gradient(110deg,#fffdf8 0%,#f8f0df 62%,#fffaf0 100%)!important;box-shadow:0 7px 22px rgba(105,78,34,.08)!important;color:#302e29!important}
+.welcome-banner:before{content:"";position:absolute;z-index:-1;inset:0;background:url('../assets/gold-botanical-ribbon.svg') right center/auto 100% no-repeat;opacity:.5;pointer-events:none}
+.welcome-banner:after{content:"";position:absolute;z-index:-1;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,#c5a15b,#f0dfb7,#b68a42,#e7d3a5)}
+.welcome-identity{gap:22px!important;max-width:calc(100% - 170px)!important}
+.welcome-identity>.user-avatar{width:116px!important;height:116px!important;flex:0 0 116px!important;padding:5px!important;border:4px solid #fff!important;background:linear-gradient(135deg,#f4dfaa,#bd9147,#f8e8bd)!important;box-shadow:0 4px 15px rgba(93,69,30,.16)!important}
+.welcome-identity>.user-avatar.fallback{font-size:36px!important;color:#344b3d!important;background:linear-gradient(135deg,#fff,#f3e7ce) content-box,linear-gradient(135deg,#f4dfaa,#bd9147,#f8e8bd) padding-box!important}
+.welcome-banner .eyebrow{color:#a47b35!important;font-size:.65rem!important;letter-spacing:.14em!important}
+.welcome-banner h2{font-family:Georgia,"Times New Roman",serif!important;color:#263d32!important;font-size:clamp(22px,2.1vw,30px)!important;text-shadow:none!important}
+.welcome-banner p{color:#70695d!important}
+.welcome-tags span{background:#f7f0e3!important;color:#77613b!important;border:1px solid #ead8b5!important}
+.welcome-date{position:absolute!important;right:20px!important;top:17px!important;left:auto!important;bottom:auto!important;background:rgba(255,253,249,.85)!important;border:1px solid #ead8b5!important;color:#796b52!important;border-radius:9px;padding:7px 10px}
+/* Financial summary cards */
+.dashboard-stats,.dashboard-stats-expanded{gap:14px!important;margin-bottom:20px!important}
+.stat-card{position:relative!important;overflow:hidden!important;background:linear-gradient(145deg,#fffdf9,#fff)!important;border:1px solid #eadfc9!important;border-radius:16px!important;padding:18px 19px!important;box-shadow:0 4px 13px rgba(87,67,34,.065)!important}
+.stat-card:before{left:0!important;top:0!important;bottom:auto!important;width:100%!important;height:2px!important;background:linear-gradient(90deg,#c5a15b,#ead8ad,#c5a15b)!important}
+.stat-card:after{content:"";position:absolute;right:-16px;bottom:-20px;width:112px;height:72px;background:url('../assets/gold-botanical-ribbon.svg') right bottom/auto 100% no-repeat;opacity:.12;pointer-events:none}
+.stat-card span,.stat-card .label{color:#777168!important;font-size:.76rem!important;font-weight:600!important;text-transform:none!important;letter-spacing:.015em!important}
+.stat-card strong,.stat-card .value{color:#263d32!important;font-size:clamp(20px,1.8vw,26px)!important;font-weight:750!important;font-variant-numeric:tabular-nums!important}
+.stat-card small{color:#898174!important}
+.stat-card:hover{transform:translateY(-3px)!important;box-shadow:0 9px 22px rgba(87,67,34,.11)!important}
+.stat-card.tone-blue:before,.stat-card.tone-purple:before,.stat-card.tone-cyan:before,.stat-card.tone-red:before,.stat-card.tone-orange:before,.stat-card.tone-teal:before,.stat-card.tone-green:before,.stat-card.tone-gold:before{background:linear-gradient(90deg,#c5a15b,#ead8ad,#c5a15b)!important}
+/* Panels, data visualizations, recent activity */
+.panel{background:#fffdf9!important;border:1px solid #e9dfcd!important;border-radius:17px!important;box-shadow:0 4px 14px rgba(87,67,34,.055)!important}
+.panel-head{background:linear-gradient(90deg,#fffdf9,#fbf6ec)!important;border-bottom:1px solid #eee4d3!important;padding:16px 19px!important}
+.panel-head h2{font-family:Georgia,"Times New Roman",serif!important;color:#263d32!important;font-size:1.04rem!important}
+.panel-body{padding:19px!important}
+.panel-subtitle{color:#8b806e!important}
+.dashboard-grid{gap:16px!important}
+.chart-bar.income,.legend-dot.income{background:#477a5b!important}
+.chart-bar.expense,.legend-dot.expense{background:#d5a34c!important}
+.chart-bars{border-bottom-color:#e8dfd0!important}
+.chart-label,.chart-legend{color:#817969!important}
+.health-gauge{--gauge-color:#477a5b}
+.health-gauge-inner{background:#fffdf9!important;color:#344b3d!important}
+.health-legend>div{border-bottom-color:#eee5d7!important}
+/* All tables retain structure and horizontal scroll behavior on smaller screens */
+table{background:#fff!important;color:#302e29!important;font-size:.82rem!important}
+th{background:#f5efe3!important;color:#645a49!important;border-bottom:1px solid #d9bf88!important;font-size:.68rem!important;letter-spacing:.07em!important}
+td{border-bottom:1px solid #f0e9de!important;color:#4d493f!important;padding:12px 14px!important}
+tr:hover td{background:#fcf8f0!important}
+/* Forms, dialogs and controls */
+.field,.login-card label{color:#625b50!important}
+.field input,.field select,.field textarea,input:not([type=checkbox]):not([type=radio]),select,textarea{border:1px solid #dfd4c1!important;border-radius:10px!important;background:#fffdf9!important;color:#302e29!important;box-shadow:inset 0 1px 2px rgba(67,51,25,.025)}
+.field input:focus,.field select:focus,.field textarea:focus,input:focus,select:focus,textarea:focus{outline:none!important;border-color:#c5a15b!important;box-shadow:0 0 0 3px rgba(197,161,91,.16)!important}
+button,.btn{border-radius:10px!important;transition:background .18s ease,transform .18s ease,box-shadow .18s ease}
+.primary{background:#344b3d!important;color:#fffdf9!important;border:1px solid #263d32!important;box-shadow:0 3px 8px rgba(38,61,50,.13)!important}
+.primary:hover{background:#263d32!important}
+.secondary{background:#fffaf0!important;color:#344b3d!important;border:1px solid #d9bf88!important}
+.secondary:hover{background:#f5ecd9!important}
+.ghost{background:#fffdf9!important;color:#625b50!important;border:1px solid #e5dccd!important}
+.danger{background:#fbefed!important;color:#a94d46!important;border:1px solid #efd2ce!important}
+.icon-btn{background:#f7f1e7!important;color:#76613b!important;border:1px solid #ead9b8!important}
+#record-dialog,#detail-dialog{background:#fffdf9!important;color:#302e29!important;border:1px solid #d9bf88!important;border-radius:18px!important;box-shadow:0 24px 70px rgba(44,37,25,.24)!important}
+#record-dialog::backdrop,#detail-dialog::backdrop{background:rgba(35,43,35,.38)!important;backdrop-filter:blur(3px)}
+.dialog-head{border-bottom:1px solid #eee4d3!important}
+.dialog-head h2{font-family:Georgia,serif!important;color:#263d32!important}
+.dialog-actions{border-top:1px solid #eee4d3!important}
+/* Login surface */
+.login-wrap{background:radial-gradient(ellipse at 15% 10%,rgba(197,161,91,.15),transparent 38%),linear-gradient(135deg,#f8f5ef,#eee5d5)!important}
+.login-wrap:before{/* heart handled in floral-finish.css */}
+.login-card{background:#fffdf9!important;border:1px solid #e4d3af!important;border-radius:22px!important;box-shadow:0 18px 50px rgba(76,59,30,.14)!important}
+.login-card h1{font-family:Georgia,serif!important;color:#263d32!important}
+.login-card input{background:#fff!important}
+.login-card input:focus{border-color:#c5a15b!important;box-shadow:0 0 0 3px rgba(197,161,91,.16)!important}
+/* Page-wide floral accents are kept at the margins, never behind financial data. */
+#page-content>.panel:first-child{position:relative}
+#page-content>.panel:first-child:after{content:"";position:absolute;right:0;top:0;width:118px;height:82px;background:url('../assets/gold-botanical-ribbon.svg') right top/auto 100% no-repeat;opacity:.12;pointer-events:none}
+/* Mobile: proper drawer, compact card grids, horizontal table scroller */
+@media(max-width:720px){
+ .sidebar{width:min(286px,86vw)!important;transform:translateX(-105%);transition:transform .22s ease!important;z-index:120!important}
+ .sidebar.open{transform:translateX(0)!important}
+ .main{margin-left:0!important;width:100%!important}
+ .content{padding:17px 14px 24px!important}
+ .topbar{height:66px!important;padding:0 14px!important;gap:10px!important}
+ .topbar h1{font-size:1.12rem!important}
+ .topbar-right{font-size:.68rem!important}
+ .welcome-banner{min-height:0!important;padding:18px!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:10px!important}
+ .welcome-identity{max-width:100%!important;align-items:center!important;gap:13px!important}
+ .welcome-identity>.user-avatar{width:82px!important;height:82px!important;flex:0 0 82px!important}
+ .welcome-identity>div{max-width:none!important}
+ .welcome-banner h2{font-size:20px!important}
+ .welcome-banner p{font-size:12px!important}
+ .welcome-date{position:relative!important;top:auto!important;right:auto!important;margin-left:95px!important;font-size:10px!important}
+ .dashboard-stats,.dashboard-stats-expanded{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+ .stat-card{padding:13px!important;min-height:98px}
+ .stat-card strong{font-size:18px!important;overflow-wrap:anywhere}
+ .dashboard-grid,.dashboard-grid-top,.dashboard-grid-bottom{grid-template-columns:1fr!important;gap:12px!important}
+ .panel-head{padding:13px 14px!important}.panel-body{padding:14px!important}
+ .table-wrap,#page-content .panel{max-width:100%;}
+ #page-content .panel{overflow-x:auto}
+ #page-content table{min-width:640px}
+ .app-footer{padding:12px 14px!important;font-size:11px!important}
+}
+@media(max-width:390px){.dashboard-stats,.dashboard-stats-expanded{grid-template-columns:1fr!important}.welcome-identity{align-items:flex-start!important}.welcome-identity>.user-avatar{width:68px!important;height:68px!important;flex-basis:68px!important}.welcome-date{margin-left:81px!important}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+/* =========================================================
+   AVENIX BOTANICAL ENRICHMENT — deeper forest leaves + gold
+   Presentation-only refinements; application logic untouched.
+   ========================================================= */
+:root{
+  --avenix-forest:#183729;
+  --avenix-forest-deep:#10291f;
+  --avenix-leaf:#365b3e;
+  --avenix-leaf-light:#6d8758;
+  --avenix-champagne:#c5a15b;
+  --avenix-gold-light:#ead5a1;
+}
+
+/* Stronger, unmistakably dark-green calls to action */
+.primary,
+button.primary,
+.btn-primary,
+a.primary,
+#dialog-save{
+  background:linear-gradient(135deg,#244633 0%,#173426 100%)!important;
+  color:#fffdf5!important;
+  border:1px solid #b8944c!important;
+  box-shadow:0 4px 0 rgba(15,39,28,.16),0 7px 16px rgba(22,54,37,.2)!important;
+  font-weight:750!important;
+}
+.primary:hover,.btn-primary:hover,#dialog-save:hover{
+  background:linear-gradient(135deg,#142e21 0%,#0d241a 100%)!important;
+  border-color:#d0ae68!important;
+  box-shadow:0 5px 18px rgba(16,41,29,.28)!important;
+  transform:translateY(-1px);
+}
+.primary:focus-visible,.secondary:focus-visible,.ghost:focus-visible,
+button:focus-visible,a:focus-visible{
+  outline:3px solid rgba(197,161,91,.55)!important;
+  outline-offset:2px!important;
+}
+.secondary{color:#1d3b2a!important;border-color:#c5a15b!important}
+.secondary:hover{background:#f0e5cb!important;border-color:#a9843e!important}
+#logout-btn{color:#1d3b2a!important}
+
+/* Green-and-gold botanical flourishes: richer opacity and more generous scale. */
+.content:before{
+  width:min(470px,48%)!important;height:265px!important;
+  opacity:.28!important;background-size:auto 100%!important;
+}
+.sidebar:after{
+  width:340px!important;height:245px!important;opacity:.34!important;
+}
+.welcome-banner:before{
+  opacity:.72!important;
+  background-size:auto 122%!important;
+}
+.stat-card:after{
+  width:150px!important;height:104px!important;
+  opacity:.23!important;
+}
+#page-content>.panel:first-child:after{
+  width:170px!important;height:118px!important;opacity:.24!important;
+}
+
+/* Decorative page framing. The artwork sits in empty corners, never under data. */
+#page-content{position:relative;isolation:isolate}
+#page-content:before{
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  left:-28px;top:115px;width:190px;height:260px;
+  background:url('../assets/gold-botanical-ribbon.svg') left center/auto 100% no-repeat;
+  opacity:.12;transform:scaleX(-1);
+}
+#page-content:after{
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  right:-22px;bottom:12px;width:220px;height:280px;
+  background:url('../assets/gold-botanical-ribbon.svg') right bottom/auto 100% no-repeat;
+  opacity:.15;
+}
+
+/* Add fine botanical gold/green corner details to cards and section surfaces. */
+.stat-card,.panel,.welcome-banner,.login-card,#record-dialog,#detail-dialog{
+  isolation:isolate;
+}
+.stat-card,.panel{
+  border-color:#dfc99d!important;
+  box-shadow:0 5px 17px rgba(51,67,43,.075),inset 0 1px 0 rgba(255,255,255,.9)!important;
+}
+.stat-card{background:linear-gradient(145deg,#fffefa 0%,#fff 65%,#f7f4e9 100%)!important}
+.stat-card:before{
+  height:3px!important;
+  background:linear-gradient(90deg,#294a35 0%,#c5a15b 32%,#ead5a1 55%,#365b3e 100%)!important;
+}
+.panel-head{
+  background:linear-gradient(100deg,#fbf8ef 0%,#fffdf9 58%,#f1ead9 100%)!important;
+  position:relative;overflow:hidden;
+}
+.panel-head:after{
+  content:"";position:absolute;right:0;top:-25px;width:135px;height:90px;
+  pointer-events:none;opacity:.2;
+  background:url('../assets/gold-botanical-ribbon.svg') right center/auto 100% no-repeat;
+}
+.panel-head h2{position:relative;z-index:1}
+.welcome-banner{
+  border:1px solid #c5a15b!important;
+  background:linear-gradient(110deg,#fffdf8 0%,#f7f0df 55%,#e8eddf 100%)!important;
+}
+.welcome-banner:after{
+  height:4px!important;
+  background:linear-gradient(90deg,#1d3d2b,#c5a15b,#ead5a1,#355c3d,#b58c43)!important;
+}
+.welcome-banner h2{color:#193a29!important}
+
+/* More ornamental treatment for page headers and reusable section wrappers. */
+.page-header,.page-title-row,.section-header,.content-header{
+  position:relative;isolation:isolate;
+  border-bottom:1px solid #d9c394;
+  padding-bottom:13px!important;
+}
+.page-header:after,.page-title-row:after,.section-header:after,.content-header:after{
+  content:"";position:absolute;right:0;top:-12px;width:155px;height:92px;
+  pointer-events:none;opacity:.32;
+  background:url('../assets/gold-botanical-ribbon.svg') right top/auto 100% no-repeat;
+}
+#page-title{color:#203e2d!important}
+
+/* Sidebar active state gets a deeper botanical green and gold keyline. */
+#main-nav .nav-item.active{
+  background:linear-gradient(105deg,#1d3d2b 0%,#294b35 70%,#365b3e 100%)!important;
+  border:1px solid #c5a15b!important;
+  box-shadow:0 5px 14px rgba(24,55,41,.24),inset 0 1px 0 rgba(255,255,255,.12)!important;
+}
+#main-nav .nav-item:hover{
+  background:linear-gradient(90deg,#edf1e7,#f8f1e3)!important;
+  border-color:#d7bf8e!important;
+}
+#main-nav .nav-item .nav-icon{
+  background:linear-gradient(145deg,#f8f1e1,#e9eddf)!important;
+  border-color:#d9c18e!important;
+}
+#main-nav .nav-item.active .nav-icon{
+  background:linear-gradient(145deg,#e9d39e,#f8edce)!important;
+  border-color:#d8b76b!important;
+}
+
+/* Gold/leaf details on empty states and compact action tiles. */
+.empty-state,.quick-action,.action-card,.shortcut-card{
+  border-color:#ddc99d!important;
+  background:linear-gradient(145deg,#fffdf8,#f4f0e4)!important;
+}
+.quick-action:hover,.action-card:hover,.shortcut-card:hover{
+  border-color:#b8954e!important;
+  box-shadow:0 8px 20px rgba(38,68,46,.12)!important;
+  transform:translateY(-2px);
+}
+.badge,.status-badge{border-radius:999px}
+@media(max-width:720px){
+  .content:before{width:220px!important;height:150px!important;opacity:.2!important}
+  #page-content:before{left:-15px;width:105px;height:160px;opacity:.09}
+  #page-content:after{right:-12px;width:125px;height:170px;opacity:.1}
+  .welcome-banner:before{opacity:.38!important;background-size:auto 100%!important}
+  .stat-card:after{opacity:.16!important}
+  .page-header:after,.page-title-row:after,.section-header:after,.content-header:after{
+    width:90px;height:65px;opacity:.22
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .primary,.secondary,.quick-action,.action-card,.shortcut-card{transition:none!important}
+}

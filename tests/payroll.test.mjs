@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+const js = await readFile(new URL('../js/modules/payroll.js', import.meta.url), 'utf8');
+const sql = await readFile(new URL('../supabase/sql/schema.sql', import.meta.url), 'utf8');
+const salaryRows = js.slice(js.indexOf('const rows = ['), js.indexOf('];', js.indexOf('const rows = [')));
+assert.equal((salaryRows.match(/is_statutory:/g) || []).length, 10, 'Every salary component explicitly defines statutory flag');
+assert.match(js, /rpc\('process_payroll_payment'/);
+assert.match(sql, /update public\.payroll_lines[\s\S]*payment_status = 'PAID'/);
+assert.match(sql, /insert into public\.payslips as existing_payslip/);
+assert.match(sql, /where source_type = 'PAYROLL_PAYMENT'/);
+console.log('Payroll UI and database invariants OK.');
+assert.match(sql, /insert into public\.expenses\([\s\S]*account_type, account_id[\s\S]*'bank'[\s\S]*p_bank_account_id/);
+
+assert.match(sql, /create sequence if not exists public\.avenix_employee_code_seq/i);
+assert.match(sql, /'AVXT-' \|\| lpad\(nextval\('public\.avenix_employee_code_seq'\)/i);
+assert.match(sql, /create trigger trg_assign_avenix_employee_code/i);
+assert.match(sql, /create trigger trg_ensure_bank_account_ledger/i);
+assert.match(sql, /update public\.bank_accounts[\s\S]*set ledger_account_id = v_ledger_id/i);
+assert.match(js, /Generated automatically on save/i);
+assert.match(js, /avenix-logo\.png/i);
+assert.match(js, /border:1\.5px solid #c7a45f/i);
+console.log('AVXT sequence, bank-ledger auto-link, and branded payslip regressions OK.');
